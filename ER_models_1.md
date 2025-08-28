@@ -1,0 +1,1 @@
+Tutorials -muotonen osuus, skripti ei toimi suoraan
