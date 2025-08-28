@@ -95,7 +95,7 @@ Tests and final exam are similar to exercises (you can return your answer many t
 
 You can ask for assistance for any exercise or any other problems in the Discord server:
 
-[https://discord.gg/QASMgBGUCk](https://discord.gg/QASMgBGUCk)
+[https://discord.gg/zz](https://discord.gg/zz)
 
 Use the channel of this course: design_and_use_of_relational_databases
 
@@ -110,4 +110,5 @@ If you know an answer to a question asked by someone else, feel free to answer!
 - After the exam, the teacher will give a grade.
 - The course credits and grade will be visible in Peppi system of Turku University of Applied Sciences and (after data transfer) in the national MyStudyInfo -service: https://opintopolku.fi/oma-opintopolku/
 - MyStudyInfo works as a service to transfer credits to other universities.
+
 - In addition, you can get an official study transcription as a pdf into your email by sending a request to email address: avoinamk@turkuamk.fi
