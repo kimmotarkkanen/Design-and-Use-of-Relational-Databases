@@ -12,6 +12,4 @@
 9. [SQL Part 2](SQL2.md)
 
 CC-BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
-Kimmo Tarkkanen
-Tommi Tuomola
-Lasse Bergroth
+Kimmo Tarkkanen, Tommi Tuomola, Lasse Bergroth and other contributors in University of Turku and Turku University of Applied Sciences
