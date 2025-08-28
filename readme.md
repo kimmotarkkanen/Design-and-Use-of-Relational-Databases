@@ -3,7 +3,7 @@
 Tervetuloa kurssin materiaaleihin! 
 Alla on järjestetty lista Markdown-tiedostoista:
 
-1. Welcome to the course (Welcome_to_the_course.md)
+1. [Welcome to the course] (Welcome_to_the_course.md)
 2. Introduction to databases
 3. ER models 1
 4. ER models 2
