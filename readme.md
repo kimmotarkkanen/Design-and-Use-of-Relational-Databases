@@ -10,3 +10,8 @@
 7. [SQL DDL](SQL_DDL.md)
 8. [SQL Part 1](SQL1.md)
 9. [SQL Part 2](SQL2.md)
+
+CC-BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+Kimmo Tarkkanen
+Tommi Tuomola
+Lasse Bergroth
