@@ -21,7 +21,8 @@ Our database management system in Ville is called SQLite. It is much used all ov
 
 The final relational schema with the implemented table and column names is represented in the picture below. You can always come back and check this representation of the Company, yet we recommend you to **download the picture** to your local computer, in order to keep it easily avalaible.
 
-The number one rule and a prerequisite in creating queries with SQL is to "**know your database**". Therefore, knowing column names, table connections etc. helps you understanding how the query language works.
+The number one rule and a prerequisite in creating queries with SQL is to "**know your database**". Therefore, knowing column names, table connections etc. helps you understanding how the query language works.  
+![](Kuvat/SQL_2/1.png)
 
 The relational model of a Company database used in the SQL examples
 
@@ -49,6 +50,7 @@ You can download the image of the relational model on your local computer, altho
 **PROGRAMME**(Name TEXT PRIMARY KEY NOT NULL, Degree TEXT, School TEXT [fk])
 **COMPLETEDCREDIT**(Course TEXT PRIMARY KEY NOT NULL [fk], Student INT PRIMARY KEY NOT NULL [fk], Grade INT)
 **DEGREE**(PersonID TEXT PRIMARY KEY NOT NULL [fk], Degree TEXT PRIMARY KEY NOT NULL)
+![](Kuvat/SQL_2/2.png)
 
 CourseDB is used in the exercises of the tutorial.
 
@@ -63,6 +65,8 @@ There are several aggregate functions available in SQL:
 - MIN
 - SUM
 Aggregate functions can be used in a SELECT statement.
+![](Kuvat/SQL_2/3.png)
+
 
 **These functions return only one value** (per group of data). It means that the resulting table has only one row (see examples below).
 
@@ -80,6 +84,7 @@ FROM Employee e
 WHERE e.dno = 4;
 
 The result looks like:
+![](Kuvat/SQL_2/4.png)
 
 Above, ROUND() is a function used to round the decimals. It is not one of the aggregate functions in SQL standard. Mathematical operations can be used with aggragate functions.
 
@@ -113,7 +118,7 @@ Another way to merge tables is to use the reserved word JOIN or INNER JOIN (some
 FROM TableName1 JOIN TableName2 ON tablename1.column1 = tablename2.column2
 
 Below is a Venn diagram, describing the result of JOIN between tables A and B.
-
+![](Kuvat/SQL_2/5.png)
 Usually, in relational databases, we join tables based on their connections through foreign and primary keys, so we can present the format as follows:
 
 FROM TableName1 JOIN TableName2 ON tablename1.foreignkey = tablename2.primarykey
@@ -126,14 +131,14 @@ SELECT e.lname, d.dname
 FROM employee e JOIN Department d ON e.dno = d.dnumber;
 
 Note, that above the WHERE-clause is unnecessary (and is free for other conditions) and correct tuples and tables are formed already in the FROM-part.
-
+![](Kuvat/SQL_2/6.png)
 Let’s take a look at the joined table more closely.
 
 **Example: List employees (ssn, fname, lname, dno) with their corresponding deparment (dnumber, dname, mgrssn, mgrstartdate).**
 
 SELECT  ssn, fname, lname, dno, dnumber, dname, mgrssn, mgrstartdate
 FROM employee e JOIN Department d ON e.dno = d.dnumber;
-
+![](Kuvat/SQL_2/7.png)
 **In case three or more tables need joining**, we continue with the word JOIN, like this
 
 FROM Table 1 JOIN Table 2 ON table1.foreignkey = table2.primarykey JOIN Table 3 ON table2.foreignkey = table3.primarykey
@@ -154,7 +159,7 @@ FROM employee e JOIN works_on d ON e.ssn = d.essn JOIN project p ON d.pno=p.pnum
 SELECT e.lname, d.hours
 FROM employee e JOIN works_on d ON e.ssn = d.essn JOIN project p ON d.pno=p.pnumber
 WHERE p.pname LIKE "ProductX";
-
+![](Kuvat/SQL_2/8.png)
 ## Other JOIN types
 
 **Other types of JOIN:**
@@ -169,16 +174,16 @@ Official terms FULL OUTER JOIN, LEFT / RIGHT OUTER JOIN, but the word OUTER is n
 **NATURAL JOIN**
 
 Requires that matching columns (joining condition) are with the same name. Department and Dept_locations both have Dnumber. Dnumber is only once in the result table. The result is similar to INNER JOIN and JOIN except there are no duplicate columns in the result table.
-
+![](Kuvat/SQL_2/10.png)
 **Example**:
 
 SELECT *
 FROM department NATURAL JOIN dept_locations;
-
+![](Kuvat/SQL_2/9.png)
 **FULL JOIN**
 
 Returns all rows from both tables, matching or not. If not matching, showing NULL. SQLite do not support FULL OUTER JOIN. However, using both LEFT and/or RIGHT JOINS and combining two result sets with the word UNION, you can achieve FULL JOIN in SQLite.
-
+![](Kuvat/SQL_2/11.png)
 **Example:**
 
 SELECT ssn, fname, lname, dno, dnumber, dname
@@ -195,7 +200,7 @@ SELECT ssn, fname, lname, dno, dnumber, dname
 FROM department LEFT JOIN employee ON dno=dnumber;
 
 The result table below is imaginary (fake) for example purposes. The Company database does not allow inserting an employee without a department (Dno NOT NULL definition in Employee-table DDL sentences.)
-
+![](Kuvat/SQL_2/12.png)
 **CROSS JOIN**
 
 Basically the Cartesian product. Another name is CARTESIAN JOIN. Hard to find any uses, because produces wrong tuples.
@@ -205,27 +210,27 @@ Very expensive in terms of computing resources. Same result as when naming table
 
 SELECT *
 FROM department CROSS JOIN dept_locations;
-
+![](Kuvat/SQL_2/13.png)
 **LEFT JOIN or RIGHT JOIN**
 
 Returns all rows from the table on the left and matching rows from the table on the right. In the example below, results all employees (the table is on the left from the words LEFT JOIN) and matches in the dependent table. If not matching, shows NULL in the right table (dependent). RIGHT JOIN works correspondingly and produces all rows from the table on the right.
-
+![](Kuvat/SQL_2/14.png)
 **Example:**
 
 SELECT ssn, fname, lname, dependent_name
 FROM employee e LEFT OUTER JOIN dependent d ON e.ssn=d.essn
 ORDER BY e.ssn ASC;
-
+![](Kuvat/SQL_2/15.png)
 Sometimes, we are especially interested in those rows that do not have a matching pair. For example, the employees who do not have dependents, the projects without workers, etc.
 This requires adding a condition.
-
+![](Kuvat/SQL_2/16.png)
 **Example:**
 
 SELECT ssn, fname, lname, dependent_name
 FROM employee e LEFT OUTER JOIN dependent d ON e.ssn=d.essn
 WHERE d.essn IS NULL
 ORDER BY e.ssn ASC;
-
+![](Kuvat/SQL_2/17.png)
 ## GROUP BY
 
 Sometimes it is necessary to group the records into one bundle according to the values of a specific field and calculate group-specific statistics. The GROUP BY clause is available in SQL to get sub-totals. Grouping is usually used with aggregate functions (count, sum, min, max, avg).
@@ -246,7 +251,7 @@ FROM Employee
 GROUP BY Dno;
 
 The following image shows the resulting table and preceeding details of processing the query:
-
+![](Kuvat/SQL_2/18.png)
 **Some rules relate to use of GROUP BY:**
 
 - *Once grouped, only group-level data can be queried*. For example, after grouping employees of the Employee-table, details of individuals, like names or birthdates, cannot be retrieved. (Well, yes you can if the grouping were done so that it divides each individual into its own group --> not very meaningful grouping)
@@ -515,5 +520,6 @@ Summary:
 		An alternative for IN and EXISTS is an INNER JOIN, while LEFT OUTER JOIN with WHERE clause checking for NULL values can be used as an alternative for NOT IN and NOT EXISTS.
 
 ## Exploiting AI
+
 
 [https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c](https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c)
