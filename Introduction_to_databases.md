@@ -98,7 +98,7 @@ Database needs to…
 
 ## Overview of a software application architecture
 
-![](kuvat/Introduction_to_databases/1.png)
+![](Kuvat/Introduction_to_databases/1.png)
 
 ## Database design aims and phases
 
@@ -107,6 +107,7 @@ Introduction to database design aims, phases and ER modelling
 [](https://youtu.be/I5O8u99WiVM)
 
 [](https://youtu.be/O1m48hmYB9Y)
+
 
 
 
