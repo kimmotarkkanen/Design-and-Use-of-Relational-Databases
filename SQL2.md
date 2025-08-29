@@ -295,7 +295,10 @@ INSERT INTO dept_locations (dnumber, dlocation) VALUES (5, "Helsinki"), (11, "He
 SELECT dnumber, dname, dlocation, AVG(salary)
 FROM department d LEFT JOIN employee e ON d.dnumber=e.dno NATURAL JOIN dept_locations
 WHERE dlocation LIKE 'H%'
-GROUP BY dnumber, dname, dlocation;
+GROUP BY dnumber, dname, dlocation;  
+
+![](Kuvat/SQL_2/19.png)  
+
 
 Unlike in the previous example, LEFT JOIN and grouping based on Dnumber, takes literally “for each department” and shows also departments without employees and calculates average salaries on those.
 
@@ -306,14 +309,20 @@ Let’s try to fix the problem by dismissing the grouping columns Dlocation and 
 SELECT dnumber, dname, dlocation, AVG(salary)
 FROM department d LEFT JOIN employee e ON d.dnumber=e.dno NATURAL JOIN dept_locations
 WHERE dlocation LIKE 'H%'
-GROUP BY dnumber;
+GROUP BY dnumber;  
+
+![](Kuvat/SQL_2/21.png)  
+
 
 Note, that above we did not change the SELECT clause accordingly (Rule: only grouping columns can appear in SELECT). This creates another problem: For the department number 5, the result table is not fully correct, because the department has also Dlocation “Helsinki” which is not shown. Dlocation is not single-valued per group anymore. Although this is not a major problem in this specific case, we should dismiss the Dlocation from the SELECT clause. We can leave Dname, as we know that it is single-valued per group, although we do not include it in the grouping columns. The query and the result are following:
 
 SELECT dnumber, dname, AVG(salary)
 FROM department d LEFT JOIN employee e ON d.dnumber=e.dno NATURAL JOIN dept_locations
 WHERE dlocation LIKE 'H%'
-GROUP BY dnumber;
+GROUP BY dnumber;  
+
+![](Kuvat/SQL_2/21.png)  
+
 
 ## HAVING
 
@@ -323,14 +332,17 @@ If necessary, groups formed with the GROUP BY clause can be limited based on a c
 - HAVING clause is designed for use with GROUP BY to restrict groups that appear in final result table.
 - Similar to WHERE, but WHERE filters individual rows whereas HAVING filters groups.
 - Column names in HAVING clause must also appear in the GROUP BY list or be contained within an aggregate function.
+
 **Example**: Calculate the average salary for each department, which have at least two employees.
 
 SELECT Dno, AVG (Salary)
 FROM Employee
 GROUP BY Dno
-HAVING COUNT(ssn) >= 2;
+HAVING COUNT(ssn) >= 2;  
 
-Above, after grouping the employees by their department number, HAVING counts the number of values in Ssn-column in each group. If the count is two or more, HAVING returns true and the average salary is calculated for the group.
+Above, after grouping the employees by their department number, HAVING counts the number of values in Ssn-column in each group. If the count is two or more, HAVING returns true and the average salary is calculated for the group.  
+
+![](Kuvat/SQL_2/22.png)  
 
 ## Subqueries
 
@@ -378,7 +390,10 @@ SELECT fname, lname, ssn
 FROM employee e
 WHERE e.ssn IN (333445555, 987654321, 888665555);
 
-Last shows names and ssn. The image representation below:
+Last shows names and ssn. The image representation below:  
+
+![](Kuvat/SQL_2/23.png)  
+
 
 **Subquery rules:**
 
@@ -547,5 +562,6 @@ Summary:
 
 
 [https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c](https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c)
+
 
 
