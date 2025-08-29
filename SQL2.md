@@ -65,6 +65,7 @@ There are several aggregate functions available in SQL:
 - MIN
 - SUM
 Aggregate functions can be used in a SELECT statement.
+
 ![](Kuvat/SQL_2/3.png)
 
 
@@ -83,7 +84,8 @@ SELECT ROUND(SUM(e.salary)*1.1) AS new_sum_of_salaries
 FROM Employee e
 WHERE e.dno = 4;
 
-The result looks like:
+The result looks like:  
+
 ![](Kuvat/SQL_2/4.png)
 
 Above, ROUND() is a function used to round the decimals. It is not one of the aggregate functions in SQL standard. Mathematical operations can be used with aggragate functions.
@@ -158,8 +160,10 @@ FROM employee e JOIN works_on d ON e.ssn = d.essn JOIN project p ON d.pno=p.pnum
 
 SELECT e.lname, d.hours
 FROM employee e JOIN works_on d ON e.ssn = d.essn JOIN project p ON d.pno=p.pnumber
-WHERE p.pname LIKE "ProductX";
-![](Kuvat/SQL_2/8.png)
+WHERE p.pname LIKE "ProductX";  
+
+![](Kuvat/SQL_2/8.png)  
+
 ## Other JOIN types
 
 **Other types of JOIN:**
@@ -173,17 +177,21 @@ Official terms FULL OUTER JOIN, LEFT / RIGHT OUTER JOIN, but the word OUTER is n
 
 **NATURAL JOIN**
 
-Requires that matching columns (joining condition) are with the same name. Department and Dept_locations both have Dnumber. Dnumber is only once in the result table. The result is similar to INNER JOIN and JOIN except there are no duplicate columns in the result table.
-![](Kuvat/SQL_2/10.png)
+Requires that matching columns (joining condition) are with the same name. Department and Dept_locations both have Dnumber. Dnumber is only once in the result table. The result is similar to INNER JOIN and JOIN except there are no duplicate columns in the result table.  
+
+![](Kuvat/SQL_2/10.png)  
+
 **Example**:
 
 SELECT *
-FROM department NATURAL JOIN dept_locations;
+FROM department NATURAL JOIN dept_locations;  
+
 ![](Kuvat/SQL_2/9.png)  
 
 **FULL JOIN**
 
-Returns all rows from both tables, matching or not. If not matching, showing NULL. SQLite do not support FULL OUTER JOIN. However, using both LEFT and/or RIGHT JOINS and combining two result sets with the word UNION, you can achieve FULL JOIN in SQLite.
+Returns all rows from both tables, matching or not. If not matching, showing NULL. SQLite do not support FULL OUTER JOIN. However, using both LEFT and/or RIGHT JOINS and combining two result sets with the word UNION, you can achieve FULL JOIN in SQLite.  
+
 ![](Kuvat/SQL_2/11.png)  
 
 **Example:**
@@ -539,4 +547,5 @@ Summary:
 
 
 [https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c](https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c)
+
 
