@@ -4,8 +4,7 @@
 
 - Ontology: What exists? Epistemology: How do we know that?
 - Data = Collection of symbols
-	
-		Values like 21, 28, 29, 33
+  Values like 21, 28, 29, 33
 - Information = Data with interpretation
 	
 		Weather measurements: Temperature in Celsius scale --> We know that temperatures of this week are raising
@@ -22,7 +21,7 @@ Long definition**:** Shared collection of logically related data (and a descript
 
 - Shared: Several applications can use.
 	
-		à Separated from the individual application (its own layer)
+		Separated from the individual application (its own layer)
 - Collection: Data forms a coherent whole.
 - Data: data, not information or knowledge.
 - Logically related: How pieces of data relate to each other and form the collection, and how single data can be iodentified
@@ -108,4 +107,5 @@ Introduction to database design aims, phases and ER modelling
 [](https://youtu.be/I5O8u99WiVM)
 
 [](https://youtu.be/O1m48hmYB9Y)
+
 
