@@ -36,7 +36,7 @@ In **many-to-many** relationship (**M:N**) every instance of the first entity ca
 **Example:**
 Student-Course relationship is many-to-many. A student can participate in many courses and a course can be participated by many students.
 
-![](kuvat/ER_models_2/1.png)
+![](Kuvat/ER_models_2/1.png)
 
 Let's consider drawing a many-to-many relationship in crow's foot notation. As learnt before we begin by drawing the entities. Between the entities we draw a diamond and write a verb inside it to represent the relationship between the entities. We connect both of the entities to the diamond with single lines. Next we consider the left entity's cardinality. As this is a many-to-many relationship, this many instances of this entity participate in the relationship. So we draw a crow's foot connected to the left entity. Similarly for the right entity.
 
@@ -46,7 +46,7 @@ In the above diagram, a student does not have to enroll to any course and a cour
 
 Another example of M:N relationship:
 
-![](kuvat/ER_models_2/2.png)
+![](Kuvat/ER_models_2/2.png)
 
 Reading the ER-diagram above: *An employee of the company participates in several projects (e.g. during the year), and several employees participate in the project. The employee does not have to be in any project (e.g. CEO of the company). The project must have at least one employee.*
 
@@ -76,11 +76,11 @@ In the Employee-entity, Hours-attribute would store only one value (e.g. 23h) fo
 
 The solution is that the information need lays in the relationship between a specific employee and specific project. Hours-attribute is a characteristic of the relation between the employee and the project. For example, *John has worked 23 hours in the project X, 78 hours in the project Y, and 0 hours in the project Z. In the project X, John has worked 23 hours, and Mike has worked 54 hours.* Each time the employee and the project are connected we add information about the hours.
 
-![](kuvat/ER_models_2/3.png)
+![](Kuvat/ER_models_2/3.png)
 
 Next example describes product orders. In the database, we would like to store our products with their product numbers, names and prices per unit. Considering one specific product (e.g. a bottle of cola drink), that has been ordered many times or none. Many times, as our grocery store has thousands of those cola bottles sold, and none (optional), as the product may be new in our selection (e.g. new cherry-vanilla taste) that we have not sold yet. Each time the product is related to an order, we store data about what was the quantity of the bottles, possible discount percent and the actual selling price of one unit (bottle). From the viewpoint of one Order, many-to-many relationship is defined as mandatory: There is no order without a related product. One order can contain many different products, and for each, the attributes of the relationship tell how many pieces and what was the selling price.
 
-![](kuvat/ER_models_2/4.png)
+![](Kuvat/ER_models_2/4.png)
 
 So, we can get information such as
 
@@ -116,15 +116,15 @@ The attributes that are part of the partial key are **underlined by a dashed lin
 
 Examples of weak entity:
 
-![](kuvat/ER_models_2/5.png)
+![](Kuvat/ER_models_2/5.png)
 
 We want to store our employees and their family members and relatives in our database. An employee's family member can be identified by their name, if we assume that the employee doesn't have two family members with the same first name. We also need to assume that the same family member is not associated with more than one employee. In this case, the family member's first name works as a partial key. Dependent is identifiable only by knowing employee's ssn (social security number). Dependents can have same names but not within the same employee.
 
-![](kuvat/ER_models_2/6.png)
+![](Kuvat/ER_models_2/6.png)
 
 Loans have several payments that shorten the loan amount. Payment is defined here as a weak entity, because it is not identifiable without getting information about the specific loan it is a payment of. Payment_number is the partial key, meaning that the database can have e.g. payments numbered from 1 to 25 which relate to a house loan and payments numbered from 1 to 15 which relate to a car loan. Values of partial keys can be the same, but the detailed identification is got from the loan and its number.
 
-![](kuvat/ER_models_2/7.png)
+![](Kuvat/ER_models_2/7.png)
 
 Grocery chains have applied bonuscards that give the consumers monthly rewards (discounts etc.). Reward is defined here as a weak entity with a combined partial key (month, year) which separates different rewards from each other under the same bonuscard.
 
@@ -185,7 +185,7 @@ For example,
 - In the small Zoo, the name is unique to the employee and suitable for primary key [probably].
 - Birds are hundreds and may have same names but not within one species [probably]. Primary key is a composite of name and species (no identical pair of values exist in birds).
 
-![](kuvat/ER_models_2/8.png)
+![](Kuvat/ER_models_2/8.png)
 
 We continue with defining relationships.
 
@@ -196,7 +196,7 @@ For example,
 - During its lifetime, a bird is fed by many employees [probably the Zoo has several employees for feeding]
 - There is not necessarily any employee associated with the bird in terms of feeding (in its first minutes in zoo, but eventually the bird will be fed)
 
-![](kuvat/ER_models_2/9.png)
+![](Kuvat/ER_models_2/9.png)
 
 You continue defining the relationship and focus also on attributes that can help in calculating costs of feeding.
 
@@ -206,7 +206,7 @@ You continue defining the relationship and focus also on attributes that can hel
 		How long was the feeding and what are the costs of working hours i.e. the duration and the salary.
 		How much the given food costs (e.g. per kilogram) and how much it was given i.e. the price and the amount
 
-![](kuvat/ER_models_2/10.png)
+![](Kuvat/ER_models_2/10.png)
 
 Although our model above holds required data in its attributes and is syntactically correct, we should have noted few alarming design decisions in the above model:
 
@@ -220,13 +220,13 @@ Although our model above holds required data in its attributes and is syntactica
 		Instead of thinking that employees have a relation to many birds, we should think that employees relate to many feeding events and vice versa.
 Thus, we design a feeding event entity instead of the relationship.
 
-![](kuvat/ER_models_2/11.png)
+![](Kuvat/ER_models_2/11.png)
 
 The feeding event is ‘one-time situation’ (like the ordering example above), which can target to many birds. There is no feeding event without any bird or any feeding employee. We assume that the feeding event is made by one employee only. If there are two or more employees performing the feeding events at the same time [in the real world], we will record as many different feeding events with different eventIDs into the database. This cardinality is to some extent also a designer’s choice about the level of details in data.
 
 Now we are almost happy with the initial plan of the database. However, when looking closer to the attributes we find that food-related data is dispersed into many places. The feeding event -entity (like the previous relationship) contains the food price and amount given in a certain event. The given food name (i.e. suitable food) is currently recorded into bird’s data. Dispersing data to different locations may cause update problems in the future. In addition, you may think, what if a bird can eat several different foods and not always the same food is given in the feeding events? In that case, we should add an attribute ‘Given food name’ to the feeding event entity. Then suitable food and given food attributes may repeat the same values, and repeating data is not very good solution either. Therefore, following the definition of an entity, it would be better to gather ‘a set of data’ related to food into Food-entity.
 
-![](kuvat/ER_models_2/12.png)
+![](Kuvat/ER_models_2/12.png)
 
 This is our final ER model. Few remarks about the changes made:
 
@@ -249,5 +249,6 @@ Pros:
 - Simple to use
 - For non-registered users: Easy access with possibility to save and continue with the model; exporting to image
 - For registered users: Functions for transforming ER model to implementation with SQL; storing models in the cloud
+
 
 [](https://youtu.be/Hj-xRMA2GJs)
