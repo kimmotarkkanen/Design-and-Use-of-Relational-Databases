@@ -33,6 +33,7 @@ The final relational schema with the implemented table and column names is repre
 The number one rule and a prerequisite in creating queries with SQL is to "**know your database**". Therefore, knowing column names, table connections etc. helps you understanding how the query language works.
 
 The relational model of a Company database used in the SQL examples
+![](Kuvat/SQL_1/1.png)
 
 *Description of the Company database:*
 
@@ -43,7 +44,7 @@ The relational model of a Company database used in the SQL examples
 **The database used in the exercises of this tutorial** is called a Movie database.
 
 The relational model of the Movie database used in the exercises of this tutorial
-
+![](Kuvat/SQL_1/2.png)
 Description:
 
 *Movie database is a simple database containing only two tables: Movie and Person. Person-table stores both actors and directors of movies. Movie-table stores different movies with their name, manufactured year, duration and description. ActorID column refers to a leading male actor of the movie, and ActressID correspondingly to a leading female actor of the movie. DirectorID refers to a person who has directed the movie.*
@@ -52,7 +53,8 @@ Download this and also other forthcoming relational models used in SQL exercises
 
 ## Executing SQL queries in Ville
 
-See the image below
+See the image below  
+![](Kuvat/SQL_1/3.png)
 
 - Description provides the task. Usually, you need to find something specific from the database with one SQL query only.
 - The database is described as the relational model on the left.
@@ -226,8 +228,9 @@ Cartesian product A * B means that every row of table A is connected with every 
 
 Cartesian product with Employee and Department tables. There are wrong tuples. For example, John Smith works in the department number 5, which is called Research.
 
-The condition Dno = Dnumber in the WHERE clause connects Employee and Department tables correctly through the foreign key (Dno) and primary key (Dnumber). For example, John Smith is now linked only to Research department.
-
+The condition Dno = Dnumber in the WHERE clause connects Employee and Department tables correctly through the foreign key (Dno) and primary key (Dnumber). For example, John Smith is now linked only to Research department.  
+![](Kuvat/SQL_1/4.png)  Cartesian product with Employee and Department tables. There are wrong tuples. For example, John Smith works in the department number 5, which is called Research.  
+![](Kuvat/SQL_1/5.png)  The condition Dno = Dnumber in the WHERE clause connects Employee and Department tables correctly through the foreign key (Dno) and primary key (Dnumber). For example, John Smith is now linked only to Research department.  
 Another way to consider above query is its order of processing.
 
 - First, in the FROM-part, a cartesian product is made, which produces a table with wrong tuples (see the upper image above).
@@ -362,5 +365,6 @@ If you wanted to list the department names in reverse alphabetical order, but th
 ORDER BY Dname DESC, Lname ASC, Fname ASC;
 
 Note! ASC options can be omitted (=default).
+
 
 
