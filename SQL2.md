@@ -119,8 +119,10 @@ Another way to merge tables is to use the reserved word JOIN or INNER JOIN (some
 
 FROM TableName1 JOIN TableName2 ON tablename1.column1 = tablename2.column2
 
-Below is a Venn diagram, describing the result of JOIN between tables A and B.
-![](Kuvat/SQL_2/5.png)
+Below is a Venn diagram, describing the result of JOIN between tables A and B.  
+
+![](Kuvat/SQL_2/5.png)  
+
 Usually, in relational databases, we join tables based on their connections through foreign and primary keys, so we can present the format as follows:
 
 FROM TableName1 JOIN TableName2 ON tablename1.foreignkey = tablename2.primarykey
@@ -562,6 +564,7 @@ Summary:
 
 
 [https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c](https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c)
+
 
 
 
