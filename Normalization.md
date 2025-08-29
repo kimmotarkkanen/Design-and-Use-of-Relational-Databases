@@ -13,7 +13,7 @@ Normalization is the process of splitting tables (relations) into well-structure
 
 Normalization can be used in two ways: To create relations or to validate relations. In the previous tutorials, we have learnt how to plan database structure with ER and relational model. Now it is time to check our plans based on the normalization process. Normalization is then used as a validation technique, which is described in the upper task flow in the image below. The other option is to collect all data-related requirements but not to model with ER or relational model and use normalization process to create meaningful tables. This approach could be named as a bottom-up approach, which is described in the lower task flow in the image below. We highly recommend using normalization for validation purposes although we practice both approaches in this tutorial. As a validation technique, normalization complements ER modeling and helps us to spot, once again, possible weaknesses and errors in our database design. However, well-designed and thought relational model is usually correct in terms of normalization rules. Those rules, or normal forms, are discussed next.
 
-![](kuvat/Normalization/1.png)
+![](Kuvat/Normalization/1.png)
 
 # Process of normalization
 
@@ -60,11 +60,11 @@ In order to review whether the table meets certain rule, we need to have a good 
 
 Remember the Zoo example? Let’s imagine that our initial ER model would have been a bit different than in previous examples. Now, our solution represented as an ER model would look like this.
 
-![](kuvat/Normalization/2.png)
+![](Kuvat/Normalization/2.png)
 
 In the above ER model, we have attached the favorite food of the bird and its price to Bird-entity. We also want to store data about the bird’s colors and maximum wingspan that denotes the size of the bird (e.g. Pelicans have larger wingspan than Colibris). Another change is that for employees we would like to store their home and work phone numbers. The ER model seems fine, and we have converted it to a relational model shown below.
 
-![](kuvat/Normalization/3.png)
+![](Kuvat/Normalization/3.png)
 
 **1NF:**
 
@@ -91,7 +91,7 @@ You may have noticed that evaluating the single-valued rule of 1NF is not always
 
 The resulting relational model, which is in the first normal form (1NF) is shown below.
 
-![](kuvat/Normalization/4.png)
+![](Kuvat/Normalization/4.png)
 
 **2NF:**
 
@@ -105,7 +105,7 @@ Foodname -column refers to the favorite food of the bird. In this case, let’s 
 
 The solution is to cut out the rule-breaking column (Wingspan_max) and add it to its own table with the column it is fully dependent of (Species). Thus, we will create a new table called Species, add both columns into it, and define Species as the primary key. This new table does not break the 2NF rule as it now has only one primary key column (and it does not break the 1NF if there is a primary key, single values and no repetition). The resulting relational model which is in 2NF is shown below. Note, that while we deleted the Wingspan_max column from the original Bird-table, we had to keep Species -column as other normal columns are fully dependent on the whole primary key (Name, Species). Moreover, this Species-column became a foreign key referring to the new Species-table and its Species-column as the primary key. In other words, we collect all the species-specific data into Species-table, for example their distribution and habitat, and the direction of the reference is from Bird to Species.
 
-![](kuvat/Normalization/5.png)
+![](Kuvat/Normalization/5.png)
 
 **3NF:**
 
@@ -125,7 +125,7 @@ In the bird table we look at dependencies like whether the food name defines the
 
 The solution is the same than with 2NF. We create a new table called Food, where we put both of the columns and delete Foodprice as the rule-breaking column from the Bird-table. The resulting relational model, which is in 3NF is shown below. As said earlier, we could have ended in similar solution with careful ER modeling, in which defining multivalued attributes and recognizing concepts like Food and Species as entities would have resulted a similar relational model. Now we have successfully used normalization to validate our initial design. This is our final relational model, which we will implement with SQL.
 
-![](kuvat/Normalization/6.png)
+![](Kuvat/Normalization/6.png)
 
 # Example of normalization in creational purpose
 
@@ -135,7 +135,7 @@ Imagine that you are designing a database for a health care center to keep track
 
 You have presented these requirements in the table format (see the image below). (This table not drawn as a relational model but with the Excel to get to show the data content.) Note, that the actual data content is added just as an example about the kind of data (type) each column could store in real database (e.g. Tony Smith to the Doctor name -column). The normalization is still based on the dependencies between the columns and no individual data example influence on that.
 
-![](kuvat/Normalization/7.png)
+![](Kuvat/Normalization/7.png)
 
 Next, we normalize the above table step by step to 3rd normal form. The objective is to get a well-designed set of tables i.e. the relational model, which we can implement. We represent the result of each phase (1NF, 2NF, 3NF) together with primary (bolded, underlined) and foreign keys (FK).
 
@@ -151,7 +151,7 @@ Note, that our domain knowledge and collected requirements highly effect in sear
 
 Now the table is in 1NF and shown below.
 
-![](kuvat/Normalization/8.png)
+![](Kuvat/Normalization/8.png)
 
 **2NF:**
 
@@ -174,7 +174,7 @@ To solve the rule-breaking dependency DoctorID à Doctor name, we create a new t
 
 Now both tables are in 2NF and shown below.
 
-![](kuvat/Normalization/9.png)
+![](Kuvat/Normalization/9.png)
 
 **3NF:**
 
@@ -186,6 +186,7 @@ In Doctors table, there are no 2 or more normal columns. In Doctor appointments 
 
 Now all tables are in 3NF and shown below. The corresponding relational model representation is shown also below. We can end here the normalization and implement the tables with SQL. Note, that in this case, despite our selection of primary key, we would have ended up into same set of tables (i.e. same changes made at different phases of normalization).
 
-![](kuvat/Normalization/10.png)
+![](Kuvat/Normalization/10.png)
 
-![](kuvat/Normalization/11.png)
+
+![](Kuvat/Normalization/11.png)
