@@ -4,7 +4,7 @@
 
 - Ontology: What exists? Epistemology: How do we know that?
 - Data = Collection of symbols
-  Values like 21, 28, 29, 33
+  - Values like 21, 28, 29, 33
 - Information = Data with interpretation
 	
 		Weather measurements: Temperature in Celsius scale --> We know that temperatures of this week are raising
@@ -107,5 +107,6 @@ Introduction to database design aims, phases and ER modelling
 [](https://youtu.be/I5O8u99WiVM)
 
 [](https://youtu.be/O1m48hmYB9Y)
+
 
 
