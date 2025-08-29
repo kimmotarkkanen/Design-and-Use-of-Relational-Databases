@@ -32,7 +32,7 @@ A relationship is an association between entities.
 - Relationships are often represented by verbs that describe how the entities are related
 
 
-# ![Video lecture: Entity] (https://www.youtube.com/watch?v=2Yszg8Nuypk)
+[Video: Entity](https://www.youtube.com/watch?v=2Yszg8Nuypk)
 
 # Task 1: ER model concepts
 The purpose of the task is to classify things in the university world using the concepts of the ER model: entity, attribute and relationship. Please select and drag university concepts to correct category (in ER model)
