@@ -179,11 +179,13 @@ Requires that matching columns (joining condition) are with the same name. Depar
 
 SELECT *
 FROM department NATURAL JOIN dept_locations;
-![](Kuvat/SQL_2/9.png)
+![](Kuvat/SQL_2/9.png)  
+
 **FULL JOIN**
 
 Returns all rows from both tables, matching or not. If not matching, showing NULL. SQLite do not support FULL OUTER JOIN. However, using both LEFT and/or RIGHT JOINS and combining two result sets with the word UNION, you can achieve FULL JOIN in SQLite.
-![](Kuvat/SQL_2/11.png)
+![](Kuvat/SQL_2/11.png)  
+
 **Example:**
 
 SELECT ssn, fname, lname, dno, dnumber, dname
@@ -199,8 +201,10 @@ UNION
 SELECT ssn, fname, lname, dno, dnumber, dname
 FROM department LEFT JOIN employee ON dno=dnumber;
 
-The result table below is imaginary (fake) for example purposes. The Company database does not allow inserting an employee without a department (Dno NOT NULL definition in Employee-table DDL sentences.)
-![](Kuvat/SQL_2/12.png)
+The result table below is imaginary (fake) for example purposes. The Company database does not allow inserting an employee without a department (Dno NOT NULL definition in Employee-table DDL sentences.)  
+
+![](Kuvat/SQL_2/12.png)  
+
 **CROSS JOIN**
 
 Basically the Cartesian product. Another name is CARTESIAN JOIN. Hard to find any uses, because produces wrong tuples.
@@ -209,28 +213,38 @@ Very expensive in terms of computing resources. Same result as when naming table
 **Example:**
 
 SELECT *
-FROM department CROSS JOIN dept_locations;
-![](Kuvat/SQL_2/13.png)
+FROM department CROSS JOIN dept_locations;  
+
+![](Kuvat/SQL_2/13.png)  
+
 **LEFT JOIN or RIGHT JOIN**
 
-Returns all rows from the table on the left and matching rows from the table on the right. In the example below, results all employees (the table is on the left from the words LEFT JOIN) and matches in the dependent table. If not matching, shows NULL in the right table (dependent). RIGHT JOIN works correspondingly and produces all rows from the table on the right.
-![](Kuvat/SQL_2/14.png)
+Returns all rows from the table on the left and matching rows from the table on the right. In the example below, results all employees (the table is on the left from the words LEFT JOIN) and matches in the dependent table. If not matching, shows NULL in the right table (dependent). RIGHT JOIN works correspondingly and produces all rows from the table on the right.  
+
+![](Kuvat/SQL_2/14.png)  
+
 **Example:**
 
 SELECT ssn, fname, lname, dependent_name
 FROM employee e LEFT OUTER JOIN dependent d ON e.ssn=d.essn
-ORDER BY e.ssn ASC;
-![](Kuvat/SQL_2/15.png)
+ORDER BY e.ssn ASC;  
+
+![](Kuvat/SQL_2/15.png)  
+
 Sometimes, we are especially interested in those rows that do not have a matching pair. For example, the employees who do not have dependents, the projects without workers, etc.
-This requires adding a condition.
-![](Kuvat/SQL_2/16.png)
+This requires adding a condition.  
+
+![](Kuvat/SQL_2/16.png)  
+
 **Example:**
 
 SELECT ssn, fname, lname, dependent_name
 FROM employee e LEFT OUTER JOIN dependent d ON e.ssn=d.essn
 WHERE d.essn IS NULL
-ORDER BY e.ssn ASC;
-![](Kuvat/SQL_2/17.png)
+ORDER BY e.ssn ASC;  
+
+![](Kuvat/SQL_2/17.png)  
+
 ## GROUP BY
 
 Sometimes it is necessary to group the records into one bundle according to the values of a specific field and calculate group-specific statistics. The GROUP BY clause is available in SQL to get sub-totals. Grouping is usually used with aggregate functions (count, sum, min, max, avg).
@@ -250,8 +264,10 @@ SELECT Dno, AVG (Salary)
 FROM Employee
 GROUP BY Dno;
 
-The following image shows the resulting table and preceeding details of processing the query:
-![](Kuvat/SQL_2/18.png)
+The following image shows the resulting table and preceeding details of processing the query:  
+
+![](Kuvat/SQL_2/18.png)  
+
 **Some rules relate to use of GROUP BY:**
 
 - *Once grouped, only group-level data can be queried*. For example, after grouping employees of the Employee-table, details of individuals, like names or birthdates, cannot be retrieved. (Well, yes you can if the grouping were done so that it divides each individual into its own group --> not very meaningful grouping)
@@ -523,3 +539,4 @@ Summary:
 
 
 [https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c](https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c)
+
