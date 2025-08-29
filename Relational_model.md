@@ -32,7 +32,7 @@ In relational model it is possible to form relationships between tables. This is
 
 Image below: A relational model for a company that manufactures machine parts. This is a simplified model for client orders.
 
-![](kuvat/Relational_model/1.png)
+![](Kuvat/Relational_model/1.png)
 
 **DESCRIPTION of Case Manufacturer**
 
@@ -74,7 +74,7 @@ Similarly, ProjectID is the primary key for Project-table.
 
 The primary key of Works-table is a set of attributes, namely EmployeeID and ProjectID together. Why? If we want to store two projects (e.g. projects X and Y) for the same employee (James), we need to create two rows to the Works-table: One with data (James, ProjectX, 15 hours) and another with data (James, ProjectY, 3 hours). Then, EmployeeID column alone is not unique for the rows and requires ProjectID as well. The same holds for ProjectID alone that it is not unique when more than one employee can work in the same project (remember all those thoughts about cardinalities in ER model relationships) .
 
-![](kuvat/Relational_model/2.png)
+![](Kuvat/Relational_model/2.png)
 
 *Foreign keys* are attributes or sets of attributes whose values reference the primary key of another relation (table).
 
@@ -98,7 +98,7 @@ So,
 
 We mark foreign keys with FK abbreviation.
 
-![](kuvat/Relational_model/3.png)
+![](Kuvat/Relational_model/3.png)
 
 In order to search for a specific piece of information in a relational model often requires data (attribute values) from multiple different relations. We are often looking for an answer to a question that cannot be answered by one relation alone. Finding the answer in these cases is achieved by using the foreign keys and the values of tuples.
 
@@ -138,7 +138,7 @@ An insertion attempt can violate the relational model in four different ways:
 
 Below is a relational model of the Manufacturer with primary and foreign keys marked and with some example data added. The next exercises are based on this model and data content.
 
-![](kuvat/Relational_model/4.png)
+![](Kuvat/Relational_model/4.png)
 
 Delete operation
 In the delete operation, a tuple belonging to a relational table is removed.
@@ -207,13 +207,13 @@ In short,
 
 Remember this ER model from the last tutorial?
 
-![](kuvat/Relational_model/5.png)
+![](Kuvat/Relational_model/5.png)
 
 Let’s go towards the database implementation for the Zoo and change this model to a relational schema. We use the algorithm, the seven stages described earlier to transform the model. Below, stages are explained in text. In the video, you can see how to do the transformation with our modelling tool (http://erdplus.com)
 
 **Stage 1:** Entities *Bird, Feeding_event, Employee* and *Food* are represented as tables with their attributes as columns except *Colors* attribute.
 
-![](kuvat/Relational_model/6.png)
+![](Kuvat/Relational_model/6.png)
 
 **Stage 2:** No weak entities, no changes
 
@@ -221,15 +221,15 @@ Let’s go towards the database implementation for the Zoo and change this model
 
 **Stage 4:** Three 1:N relationships: *has*, *makes* and *given.* The relationship end with only one instance participation gives the foreign key to the other end. In this case, we create three foreign keys to Feeding_event -table: Employee’s name, Foodname, and Birds’ name and Bird’s species.
 
-![](kuvat/Relational_model/7.png)
+![](Kuvat/Relational_model/7.png)
 
 **Stage 5:** One N:M relationship *suits.* We create a new table called *Birds’_Foods* (I prefer to mention both tables, but you can choose the best naming). The primary key is: Bird’s name, Bird’s species, and Foodname. These are foreign keys as well. No other columns in the table.
 
-![](kuvat/Relational_model/8.png)
+![](Kuvat/Relational_model/8.png)
 
 **Stage 6:** One multivalued attribute *Colors.* We create a new table called *Birds’_Colors* (naming up to you again, but I like to refer to the table it is attached to). The primary key is: Bird’s name, Bird’s species, and Color. Name and Species is a foreign key to the Bird-table.
 
-![](kuvat/Relational_model/9.png)
+![](Kuvat/Relational_model/9.png)
 
 **Stage 7:** No relationships with 3 or more entities, no changes.
 
@@ -243,4 +243,5 @@ If you have created your ER model with the erdplus or other tool, one option is 
 
 However, it is always good to check the result! The stages of the algorithm that these functions base on, are not always producing the most feasible relational model in practice. If the ER is complex or has somehow unnatural or personally creative solutions, the automatically created relational model may become false or unnecessarily complex. Thus, the database designer should walk through the final relational model.
 
-![](kuvat/Relational_model/10.png)
+
+![](Kuvat/Relational_model/10.png)
