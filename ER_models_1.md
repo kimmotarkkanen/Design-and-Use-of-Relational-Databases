@@ -30,22 +30,24 @@ The relationships can be: one-to-one (1:1), one-to-many (1:N), many-to-many (M:N
 Relationships are often represented by verbs that describe how the entities are related
 
 
-# Video lecture: Entity
+# ![Video lecture: Entity] (https://www.youtube.com/watch?v=2Yszg8Nuypk)
 
-# Task 1: Entities
+# Task 1: ER model concepts
 The purpose of the task is to classify things in the university world using the concepts of the ER model: entity, attribute and relationship. Please select and drag university concepts to correct category (in ER model)
 
 # ER diagram
 
 ER diagram is a presentation of the structure of the database, not the actual data. The data type or the domain of the attributes are not included. The basic symbols of ER diagram represent entities, attributes, relationships and their different forms.
 
-The names of the entities are presented in singular forms
-The names of entities and relationships are written in all capital letters
-The names of attributes are written with the first letter capitalized
+- The names of the entities are presented in singular forms
+- The names of entities and relationships are written in all capital letters
+- The names of attributes are written with the first letter capitalized
+
+![](/Kuvat/ER_models_1/1.png)  
 
 # Task 2: ER symbols
 
-# Task 3: 
+# Task 3: ER symbols
 The purpose of the task is to identify the symbols of the basic elements of the
  ER model (entity, attribute and relationship) in the diagram.
 
@@ -82,6 +84,8 @@ An entity may have such attributes that their value in some instances of the ent
 Organize the attribute related concept and its definition/explanation.
 
 # Differences in attribute symbols
+![](/Kuvat/ER_models_1/1.png)  
+  
 An attribute is a good example of how a concept in ER-model may have different versions of symbols representing it depending on the spesific use case. An attribute is represented by an ellipsis which is connected to an entity to which attribute it is. The text inside the ellipsis is underlined if the attribute is a key. If the attribute is a composite key, the text inside the ellipsis is underlined with a dashed line. If the attribute is multivalued, the edge of the ellipsis is drawn with a double line. If the attribute is derived, the edge line is drawn as a dashed line. Composite attributes are represented by a single attribute connected to the entity. The attributes that the composite attribute consists of are connected to the composite attribute with lines of their own.
 
 # Task 5: Find different attribute symbols
