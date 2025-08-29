@@ -134,15 +134,19 @@ For example, the same query than above with the JOIN
 SELECT e.lname, d.dname
 FROM employee e JOIN Department d ON e.dno = d.dnumber;
 
-Note, that above the WHERE-clause is unnecessary (and is free for other conditions) and correct tuples and tables are formed already in the FROM-part.
-![](Kuvat/SQL_2/6.png)
+Note, that above the WHERE-clause is unnecessary (and is free for other conditions) and correct tuples and tables are formed already in the FROM-part.  
+
+![](Kuvat/SQL_2/6.png)  
+
 Let’s take a look at the joined table more closely.
 
 **Example: List employees (ssn, fname, lname, dno) with their corresponding deparment (dnumber, dname, mgrssn, mgrstartdate).**
 
 SELECT  ssn, fname, lname, dno, dnumber, dname, mgrssn, mgrstartdate
-FROM employee e JOIN Department d ON e.dno = d.dnumber;
-![](Kuvat/SQL_2/7.png)
+FROM employee e JOIN Department d ON e.dno = d.dnumber;  
+
+![](Kuvat/SQL_2/7.png)  
+
 **In case three or more tables need joining**, we continue with the word JOIN, like this
 
 FROM Table 1 JOIN Table 2 ON table1.foreignkey = table2.primarykey JOIN Table 3 ON table2.foreignkey = table3.primarykey
@@ -564,6 +568,7 @@ Summary:
 
 
 [https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c](https://chat.openai.com/share/b4e7dc11-f1ae-4229-b244-d7f4aefaa89c)
+
 
 
 
